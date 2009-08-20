@@ -1,0 +1,74 @@
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |                         a&a (light) script v0.04.00 Beta 1                          |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |             Creative Commons Copyright 2002-2009 by UniversaliA aka aqwzsx          |
+# |                               http://ascript.name                                   |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |        Website             @  http://ascript.name                                   |
+# |        Forum & support     @  http://ascript.name/forum                             |
+# |        Features & bugs     @  http://ascript.name/bugs                              |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |                    #a&a & #botlending @ Undernet/Quakenet IRC                       |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+######################################################
+
+a&a light is a public version of original a&a script, a full featured, advanced eggdrop 
+tcl script - with channel commands, full channel stats, channel/user service & 
+protections. Thought for botlending activity with automated routines & global 
+administration/stats. With 100+ user-friendly commands, original channel settings & 
+user flags.
+
+http://ascript.name/use		How to use a&a light
+http://ascript.name/install	How to install & setup a&a light
+http://ascript.name/coding	How to code, modify or add new features in a&a light
+http://ascript.name/commands	Usage & description for script commands 
+http://ascript.name/flags	Usage & description for script user flags 
+http://ascript.name/settings	Usage & description for script channel settings 
+
+
+a&a light is compatible with eggdrop/windrop 1.6.17 or higher. To run the script, you 
+*MUST* have a compiled eggdrop on your shell or an windrop.
+
+Extract the a&a light script in the eggdrop/windrop directory (for Windows use 
+winrar/winzip; for unix/linux use 'tar -zxpf a_and_a_light-xx.xx.xx.tar.gz'). You
+will have 3 configuration files: 'botnick.conf', 'settings.conf', 'eggdrop.conf' & the 
+folder: 'ascript'.
+
+Before starting the BOT you *MUST* edit botnick.conf & settings.conf, otherwise the BOT
+will *NOT* start or will be shutdowned.
+
+# botnick.conf  - specifies the particular settings for every BOT apart: nick, ip, pass.
+                - loads settings.conf, eggdrop.conf & the ascript/loader.tcl.
+
+# settings.conf - specifies the settings for a&a light: console, the site, owner ...
+
+# eggdrop.conf  - specifies the settings for eggdrop: network, servers, modules ...
+
+# To become a global manager (+N flag) - you MUST have global +n flag & your MUST be a
+                permanent owner (see *set owner "YourHand"* in settings.tcl). To become
+                manager - msg the BOT the command: 'promote'. You will be automatically
+                granted +N global flag (manager).
+
+                Attention! if there is already a global +N user - the 'promote' command
+                will have *NO* effect. This command works once, as the command 'hello'.
+
+# To ensure X or Q compatibility, BOT's user on X - MUST have the language set to english
+                (msg X set lang en). Q or X must have global flag W.
+
+To run the eggdrop, type: ./eggdrop botnick.conf (if you changed the name of botnick.conf
+or you have more bots in the same folder - type: ./eggdrop bot1.conf && ./eggdrop
+bot2.conf) && ./eggdrop bot3.conf etc etc.
+
+To run the windrop, type in command prompt: eggdrop botnick.conf (if you  changed the
+name of botnick.conf type: 'eggdrop bot1.conf' (enter) 'eggdrop bot2.conf'
+(enter) 'eggdrop bot3.conf' (enter) etc etc).
+
+More info find @ http://ascript.name/install & http://ascript.name/use

@@ -1,0 +1,431 @@
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |                         a&a (light) script v0.04.00 Beta 1                          |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |             Creative Commons Copyright 2002-2009 by UniversaliA aka aqwzsx          |
+# |                               http://ascript.name                                   |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |        Website             @  http://ascript.name                                   |
+# |        Forum & support     @  http://ascript.name/forum                             |
+# |        Features & bugs     @  http://ascript.name/bugs                              |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+# |                                                                                     |
+# |                    #a&a & #botlending @ Undernet/Quakenet IRC                       |
+# |                                                                                     |
+# +-------------------------------------------------------------------------------------+
+######################################################
+
+version 0.04.00 Beta 1
+		
+		- settings.conf
+			+ moved in a few settings from eggdrop.conf
+		- loader.tcl
+			+ some updates & optimizations
+			+ check for tcl version
+		- a&a_01_a_core.tcl
+			+ proc a:flood > rectified/optimised, removed bug
+			+ proc a:bind:for > rectified
+			+ proc a:timed:01:minutes > rectified & removed bug
+                        + proc tell > colours (option to use colours or not)
+			+ proc tell > rectified/optimised, removed bug
+			+ proc a:adduser > if IRC nick length greater than egg nick lenght > warn
+		- a&a_02_a_binds.tcl
+			+ catch unbind
+		- a&a_03_a_xservice.tcl
+			+ proc 1_hour > removed bug (when X is in split, bot will try to login again in a hour, if there is no X on console) Thx to Starter
+			+ fix for eggdrop +x mode uhost selfupdate in $botname, rare issue 
+		- a&a_10_a_owner.tcl
+			+ proc pub:autoclean:userlist > removed a bug, settings(auto_clean_users) is not more ignored (thx to uf)
+		- a&a_11_a_global_N.tcl
+			+ proc pub:addbot > if IRC nick length greater than egg nick lenght > warn
+		- a&a_14_a_global_o.tcl
+			+ proc pub:adduser > if IRC nick length greater than egg nick lenght > warn
+			+ proc pub:chhandle  > if IRC nick length greater than egg nick lenght > warn
+		- a&a_23_a_local_m.tcl
+			+ chanset > new chan flag > floatmargin
+			+ chanset > new chan flag > floatgrace
+			+ chanset > new chan flag > floatmax
+		- a&a_27_a_local_q.tcl
+			+ proc pub:auth > removed a critical bug (thx Starter2)
+		- a&a_43_a_stats.tcl
+			+ proc stats:average > bug in calculation formula 
+			+ some updates & rectifications
+		- a&a_41_a_info.tcl
+			+ clean info from purged chans (alias & disabled commands remained from purged channels)
+
+version 0.03.02 Alpha
+
+		- CODING
+			+ updated (thx to mnemonic for help, thx freezed for translation in romanian)
+		- SUPORT
+			+ updated (thx to edyy for translation in romanian)
+		- INSTALL
+			+ updated (thx to mnemonic for help)
+			+ added new links
+			+ added info, how to compile an eggdrop
+		- settings.conf
+			+ new setting > settings(flood) > enable/disable chan-user antiflood
+		- eggdrop.conf
+			+ updated server list for undernet
+		- a&a_01_a_core.tcl
+			+ proc a:bind:for > rectified
+			+ proc a:bind:botnick > rectified
+			+ proc a:bind:skip > new bind
+			+ proc a:flood > updated, added user, chan & topic switches
+			+ proc a:parser > added chan/user anti flood
+		- a&a_10_a_owner.tcl
+			+ proc pub:autoclean:chanlist > bug (thx to lsn)
+		- a&a_13_a_global_m.tcl
+			+ new command > !silence
+		- a&a_16_a_global_v.tcl
+			+ new command > !ignore
+		- a&a_04_a_dict_en.tcl
+			+ a few corrections (thx to Freezed)
+			+ added translations for processes using proc a:level (thx to lsn)
+		- a&a_12_a_global_n.tcl
+			+ proc pub:chattrgl > bug (thx to Raptoor)
+		- a&a_22_a_local_n.tcl
+			+ !comeback > added a new option "-new" > in case if you want to force the BOT to join the chan (sometimes the eggdrop has internal desynch: it thinks it's on chan, but in fact it's not there)
+		- a&a_23_a_local_m.tcl
+			+ proc pub:topic > bug (thx to Raptoor)
+			+ proc a:bind:topic > added antiflood
+		
+version 0.03.01 Alpha
+
+		- eggdrop.conf
+			+ added some comments
+			+ added code to check if 'tmp-path' & 'store-path' folders are created, otherwise they will be created by bot
+		- a&a_01_a_core.tcl
+			+ a few non critical bugs (thx to lordskynet)
+			+ proc a:announce > optimised
+		- a&a_10_a_owner.tcl
+			+ proc pub:autoclean:userlist > revised + optimised
+		- a&a_23_a_local_m.tcl
+			+ proc pub:chattr > rectified
+			+ proc pub:remuser > moved to +v access level
+		- a&a_26_a_local_v.tcl
+			+ proc pub:remuser > rectified
+		- a&a_27_a_local_q.tcl 
+			+ a few non critical bugs (thx to lordskynet)
+
+version 0.03.00 Alpha
+
+		- settings.conf
+			+ new setting > settings(strict_reason) > use strict reason or not for purge, templeave & suspend ?
+		- a&a_01_a_core.tcl
+			+ proc a:parser > rectified > in invalid chan specified, the user with global access only - will be warned about + msg commands routines
+			+ proc a:authorised > rectified
+			+ a:bind:sign > updated
+			+ proc a:bind:parts > updated
+			+ proc a:bind:nick > updated
+		- a&a_11_a_global_N.tcl
+			+ proc pub:botattr > updated
+		- a&a_03_a_xservice.tcl
+			+ proc put > if not logged or settings are erroneous the bot will inform about error
+			+ proc access > revised, if the BOT has no accesses it will announce too
+		- a&a_10_a_owner.tcl
+			+ proc pub:autoclean:chanlist > bug + optimization
+		- a&a_20_a_local_N.tcl
+			+ proc pub:disable > rectified & optimised > moved from a&a_12_a_global_n.tcl
+			+ proc pub:enable > rectified & optimised > moved from a&a_12_a_global_n.tcl
+		- a&a_12_a_global_n.tcl
+			+ proc pub:chattrgl > updated
+		- a&a_14_a_global_o.tcl
+			+ proc pub:chpass > updated
+		- a&a_21_a_local_X.tcl
+			+ pub:xkick > bug (thx to Freezed)
+			+ pub:xban > bug 
+		- a&a_23_a_local_m.tcl
+			+ proc a:bind:topic > rectified
+		- a&a_26_a_local_v.tcl
+			+ proc pub:whois > bug (thx to lordskynet) > rectified & updated
+			+ proc pub:remuser > updated
+			+ proc pub:chattr > updated
+		- a&a_27_a_local_q.tcl
+			+ the commands addhost, delhost, resethots > unified in one command > !host
+			+ the commands permident, infoline > unified in one command > !userset
+			+ added more options to !userset & !userinfo > antihack, mail, url, invisible, reporting
+			+ proc pub:auth > rectified
+			+ proc pub:pass > updated
+			+ proc pub:newpass > updated
+			+ the command lang > unified with output
+			+ proc pub:output > rectified & updated
+		- a&a_28_a_local_s.tcl
+			+ ping > rectified 
+
+version 0.02.01 Alpha
+
+		- settings.conf
+			+ added flood settings
+		- a&a_26_a_local_v.tcl
+			+ proc pub:slap > rectified > if nick notochan, warn the user (thx to LoveMara)
+			+ proc pub:kiss > rectified > if nick notochan, warn the user (thx to LoveMara)
+			+ proc pub:fuck > rectified > if nick notochan, warn the user (thx to LoveMara)
+		- a&a_28_a_local_s.tcl
+			+ !uptime > moved > a&a_26_a_local_v.tcl (thx to edyy suggestion)
+			+ !server > moved > a&a_16_a_global_v.tcl (thx to edyy suggestion)
+		
+version 0.02.00 Alpha
+
+		- settings.conf
+			+ enabled settings(flags_default) for !chattr !chattrgl !adduser
+			+ settings(cmd_me) > new setting > if bot listen to /me or /ame  commands (thx to mnemonics's suggestion)
+			+ all settings nullified, if you need it & understand what it's all about, enable it yourself
+		- a&a_03_a_xservice.tcl
+			+ proc routine > renamed > proc put
+			+ proc xflood > renamed > proc flood
+		- a&a_10_a_owner.tcl
+			+ proc pub:autoclean:chanlist > bug > check if settings(lonely) is enabled (thx to lsn's suggestion)
+			+ proc pub:autoclean:userlist > bug 
+		- a&a_14_a_global_o.tcl
+			+ proc pub:deluser > bug > if user deletes itself
+		- a&a_16_a_global_v.tcl
+			+ !access > moved > 
+		- a&a_21_a_local_X.tcl
+			+ proc pub:xlog > rectified
+			+ proc * > replaced xserv::routine > ::xserv::put > rectified
+			+ added a verify load routine > if xserv module is not loaded, X commands will not load too.
+			+ proc pub:xsuspend > rectified + bug
+			+ proc pub:xban > rectified + bug
+			+ new command > !xinfo (thx to Electro's suggestion)
+		- a&a_26_a_local_v.tcl
+			+ !slap > new command
+			+ !kiss > new command
+			+ !fuck > new command
+		- a&a_27_a_local_q.tcl
+			+ proc pub:access > modified
+		- a&a_28_a_local_s.tcl
+			+ !url > new command
+			+ !news > new command
+			+ !desc > new command
+			+ !mail > new command
+			+ !faq > new command
+			+ !rules > new command
+		- a&a_40_a_stats.tcl
+			+ all the processes reviewed, optimized & rectified:
+				+ all processes are in their own namespace
+				+ verification routine on chan info load
+			+ proc channel > modified > -save & -restore are exported as independent procs
+			+ proc save > rectified > if the BOT fails to write info file, it will warn the owners
+			+ for topic added time option too, when the topic was changed
+			+ new channel settings
+				+ news, desc, mail, slap, kiss, rules, ban-reason, output
+			
+version 0.01.00 Alpha
+
+                - README
+                        + updates in _INSTALL file
+                - settings.conf
+                        + new log variables, needed for new a:log proc
+                        + new botnet variables, needed for new a:botnet:get & a:botnet:put proc
+                        + variables classified conform module
+                - a&a_01_a_core.tcl
+                        + proc a:log > new, allows to specify log level for diffrent types of comands & actions, also used to make logging through botnet
+                        + proc a:channel > added option -verify
+                        + enabled +suspended, +antinotice, +antirepeat, +limit, idle-deop
+                - loader.tcl
+                        + added sipped option for loaded scripts, if skipped is returned, the loader will not log script load
+                - a&a_20_a_local_N.tcl
+                        + proc pub:purge > on console the BOT announce also the reason
+                - a&a_21_a_local_X.tcl
+                        + proc pub:xlog > bug
+                - a&a_03_a_xservice.tcl
+                        + all the processes reviewed, optimized & rectified:
+                                + a lot of new & automated features
+                                + stats routines moved to a&a_40a_stats.tcl
+                                + all processes are in their own namespace
+                                + X auto-add in userfile
+                                + antitake routines
+                                + auto(suspend/tempelave) on abuse
+                - a&a_22_a_local_n.tcl
+                        + proc pub:cycle > bugs + rectified
+                        + proc pub:chanset > enabled suspended & secure, to rectify later
+                - a&a_40a_stats.tcl
+                        + some new processes, some processes reviewed & rectified
+                        + added few verify rotuines, if a channel has no stats etc etc
+                        + flood modes protection enabled
+
+version 0.00.004 Alpha
+
+                - a&a_00_a_settings.tcl
+                        + renamed to settings.tcl & moved to root folder
+                        + new setting > settings(lonely) > if another bot joins the chan, the BOT will purge the chan.
+                        + new setting > settings(away) > if u want the BOT to set away on connecting IRC, later the command away will be available
+                        + new setting > settings(server_modes) > server modes for BOT on server
+                - a&a_01_a_core.tcl
+                        + prefixed all core processes with "a:", to prevent eventual conflicts, thx to caesar suggestion
+                        + proc a:level > rectified, but to optimise later
+                        + enabled counterspy
+                        + new proc > proc a:announce > will report on console, notice local & global users
+                        + proc a:maskhost > rectified
+                        + proc a:timed:01:hour > rectified, but to optimise later
+                - a&a_03_a_xservice.tcl
+                        + proc mode > few rectifications, more to make
+                        + proc a:bind:kick > few rectifications, more to make
+                - a&a_23_a_local_m.tcl
+                        + proc a:pub:topic > few bugs
+                        + proc a:bind:topc > few bugs
+                - a&a_28_a_local_s.tcl
+                        + proc pub:uptime > enhanced
+                - a&a_40a_stats.tcl
+                        + a new file, all stats routines will be located here & it will become a module appart, it will be possible to turn it ON/OFF
+                - a&a_41a_seen.tcl
+                        + a new file, all seen routines will be located here & it will be a module appart, it will be possible to turn it ON/OFF
+                - loader.tcl
+                        + sort by number (lsort) the scripts to load, the order of loading is important
+                        + added new verifications if settings.tcl & botnick.tcl were edited, otherwise the BOT will not start
+                - _INSTALL
+                        + new info, reviewed
+                - _TechInfo
+                        + new info, reviewed
+
+version 0.00.003 Alpha
+
+                - a&a_00_a_settings.tcl
+                        + new setting > settings(counterspy) > to prevent finding BOTS' real ip.
+                        + new setting > settings(flags_default) > flags to give by default to any new user
+                - a&a_01_a_core.tcl
+                        + proc check:nick > rectified
+                        + proc check:part > rectified
+                        + proc check:sign > rectified
+                        + proc check:join > rectified
+                        + proc check:reason > rectified & replaced with > check -reason
+                        + check:now > rectified & replaced with > check -now
+                        + proc check:info > rectified & replaced with > check -info
+                        + proc check:regx > rectified & replaced with > check -regx
+                        + proc check:host > rectified & replaced with > check -host
+                        + proc check:opts > depricated, removed
+                        + proc check:num > rectified & replaced with > check -number
+                        + proc is:num > rectified & replaced with > check -digit
+                        + define channel protections
+                                - anitnotice
+                        + proc parser > fixed a bug
+                        + proc bind:msg:promote > new proc > allow a global +n user to become a +N global user
+                - a&a_02_a_binds.tcl
+                        + change level access for some dcc binds > *dcc:die *dcc:+chan *dcc:adduser *dcc:rehash *dcc:restart *dcc:chattr *dcc:chanset
+                        + if settings(counterspy) is set to 1 change level access for > *dcc:whois *dcc:match *dcc:bots
+                        + unbinded some msg binds > *msg:ident *msg:addhost *msg:help *msg:invite *msg:op *msg:voice *msg:whois *msg:info *msg:pass
+                        + event binds > connect-server userfile-loaded < later to develop
+                - a&a_16_a_global_v.tcl
+                        + proc pub:channels > remade + oprimized, secret channels are not shown publically
+                - a&a_17_a_global_s.tcl
+                        + proc pub:access > oprimized, secret channels are not shown publically
+                - a&a_26_a_local_v.tcl
+                        + pub:permident > moved to validuser access + fixed a bug (a&a_27_a_local_q.tcl)
+                        + pub:resethosts >  moved to validuser access + fixed a bug (a&a_27_a_local_q.tcl)
+                        + pub:delhost >  moved to validuser access + fixed a bug (a&a_27_a_local_q.tcl)
+                        + pub:addhost >  moved to validuser access + fixed a bug (a&a_27_a_local_q.tcl)
+                        + pub:lang >  moved to validuser access + fixed a bug (a&a_27_a_local_q.tcl)
+                        + pub:infoline >  moved to validuser access (a&a_27_a_local_q.tcl)
+                        + pub:output >  moved to validuser access  (a&a_27_a_local_q.tcl)
+                        + pub:flags >  moved to validuser access (a&a_27_a_local_q.tcl)
+                - a&a_28_a_local_s.tcl
+                        + proc pub:ping:SubRoutine > rectified + fixed a bug
+
+version 0.00.002 Alpha
+
+		- _CODING
+                        + new file, here you find description of specific processes in order to add your owner features to a&a script
+                - a&a_00_a_settings.tcl
+                        + new file for settings
+                        + removed all inactive flags, for the moment there are 17 additional flags
+                                - antinotice antiaction antipub  anticolour  antiunderline  antibold antierepeat
+                                - antireverse antiurl limit voice op locked suspended topic enforcetopic chanserv
+                                - chaninfo rectified
+                        + imported settings from a&a_03_a_cservice.tcl
+                        + all command prefixes are now specified in a single var $settings(cmdpfix)
+                        + added eggdrop global settings
+                        + new var > settings(paranoia) > if ON & the user has global flag, he MUST be on homechan + voiced when authorising (global user antihack).
+                        + new var > settings(user_max_range) > nick length
+                        + new chanel flag secure
+                - a&a_01_a_core.tcl
+                        + proc routine:addchan
+                                - partially replaced with original eggdrop 'setudef flag' which is more faster
+                                - removed, replaced with new command > channell -add
+                        + proc routine:addchan:save
+                                - removed, replaced with new command > channell -save
+                        + proc routine:addchan:restore
+                                - removed, replaced with new command > channell -restore
+                        + proc chan:check > replaced with original eggdrop 'channel get' which is much more faster
+                        + proc channell -set' partially replaced with original eggdrop 'channel set' which is much more faster
+                        + proc check:*:gl & proc check:*:ch >  optimised (removed if statement, direct return)
+                        + proc bind:act > rectified
+                        + proc command > new, whith a few swhitches (more switches later)
+                        + proc routine:addcom substituted with > command -add
+                                - state option > depricated > removed
+                        + proc check:d:ch > depricated > removed
+                        + proc check:k:ch > depricated > removed
+                        + proc check:l:ch > new
+                        + proc check:l:gl > new
+                        + proc routine:join > a bug (stats), anyway the prcoc must be optimised
+                        + proc routine:pub:parser > renamed > parser
+                        + proc usage > rectified
+                        + proc help > rectified
+                        + proc parser > rectified/optimized
+                        + removed > set settings(cmdpfiz) "."
+                        + removed > set settings(cmdpfiy) "`"
+                        + proc check:chan > removed
+                        + proc gett:users > removed
+                        + proc check:x:xx > improved > support for 2+ owners
+                - a&a_02_a_binds.tcl
+                        + prefix command bind are done though list of prefixes speficifed in $settings(cmdpfix) @ a&a_00_a_settings.tcl
+                - a&a_03_a_cservice.tcl
+                        + added +secure flag dependency for +l -l +i +k channel modes
+                - a&a_10_a_owner.tcl
+                        + proc pub:broadcast > bug > list to string
+                - a&a_12_a_global_n.tcl
+                        + command global > renamed > chattrgl
+                - a&a_13_a_global_m.tcl
+                        + proc pub:join > rectified
+                - a&a_20_a_local_N.tcl
+                        + command part > renamed > purge
+                - a&a_21_a_local_X.tcl
+                        + proc pub:voice   > optimised && if +q condition added
+                        + proc pub:devoice > optimised && if +g condition added
+                        + proc pub:voice   > optimised && if +q condition added
+                        + proc pub:devoice > optimised && if +g condition added
+                        + proc pub:xtopic > bug > list to string
+                        + proc pub:xurl > bug > list to string
+                - a&a_22_a_local_n.tcl
+                        + proc pub:chanset > rectified, according to changes < a&a_00_a_settings.tcl
+                - a&a_24_a_local_o.tcl
+                        + proc pub:kick  > moved to > a&a_25_a_local_l.tcl > (local +l access)
+                        + proc pub:ban   > moved to > a&a_25_a_local_l.tcl > (local +l access)
+                        + proc pub:unban > moved to > a&a_25_a_local_l.tcl > (local +l access)
+                        + proc pub:deop  > optimised/rectified  (pushmode) && if +a condition added
+                        + proc pub:op    > optimised/rectified  (pushmode) && if +d condition added
+                - a&a_24_a_local_o.tcl
+                        + proc pub:unban > optimised/rectified (pushmode) && if global condition addedd
+                - a&a_26_a_local_v.tcl
+                        + pub:chaninfo > rectified, according to changes < a&a_00_a_settings.tcl
+                        + proc pub:voice   > optimised/rectified  (pushmode) && if +q condition added
+                        + proc pub:devoice > optimised/rectified  (pushmode) && if +g condition added
+                        + new command > version
+                - a&a_27_a_local_q.tcl
+                        + proc pub:auth > rectified, added new vars > settings(paranoia) settings(user_max_range)
+                - a&a_28_a_local_s.tcl
+                        + proc pub:admins > rectified, +l flag added, moved to > a&a_26_a_local_v.tcl > (local +v access)
+                        + proc pub:stats > moved to a&a_26_a_local_v.tcl (local +v access)
+                        + proc pub:list > removed ignore option, rectified
+                        + proc pub:help > rectified
+                        + proc pub:usage > rectified
+                        + proc pub:info > rectified
+                        + proc pub:commands > rectified
+                - script version changed in pre-alpha
+                - copyright > changed into Creative Commons
+                - eggdrop.conf > to optimize channels modes, voice/devoice/op/deop/ban/unban - added > set stack-limit 6
+                - script version changed in alpha v0.00.002
+
+version 0.00.001 Alpha
+
+	 Due to fact, that my 2 years old test script (which circumstantially became public) got relatively popular in spite of fact that it's full of bugs
+	 & "controversial" coding - I decided to make a public release of original a&a script used on UNDERNET but in a light version. The difference between
+	 the a&a original & the a&a light is in the level of automatisation of some internal routines & web integration, complexity too. But all the a&a original
+	 commands & settings will be available in a&a light, as channel/user settings & flags etc etc.
+
+03.01.2005
